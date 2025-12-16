@@ -419,6 +419,11 @@
               <FileType>1</FileType>
               <FilePath>..\HW\Source\usart.c</FilePath>
             </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HW\Source\delay.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
