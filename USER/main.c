@@ -2,16 +2,32 @@
 #include "usart.h"
 #include "delay.h"
 #include "iic.h"
+#include "m24c02.h"
 
 uint16_t i;
-
+uint8_t rbuff[256];
 
 int main(void)
 {
 	Usart0_Init(921600);
 	u0_printf("%d %c %x\r\n",0x30,0x30,0x30);
-	
 	Delay_Init();
+	IIC_Init();
+	
+	for(i = 0; i < 256; i++)
+	{
+		M24C02_WriteByte(i,i);
+		Delay_Ms(5);
+	}
+	
+	M24C02_ReadData(0,rbuff,256);
+	
+	for(i = 0; i < 256; i++)
+	{
+		u0_printf("addr:%d  data:%d\r\n",i,rbuff[i]);
+		Delay_Ms(100);
+	}
+	
 	
 	while(1)
 	{
@@ -32,9 +48,12 @@ int main(void)
 //	  	}
 //			
 //		}
-		  Delay_Ms(2000);
-			u0_printf("%d Delay succeed\r\n",0x30);
 		
+		// ÑÓÊ±²âÊÔ´úÂë
+//		  Delay_Ms(2000);
+//			u0_printf("%d Delay succeed\r\n",0x30);
+			
+
 	}
 	
 }
