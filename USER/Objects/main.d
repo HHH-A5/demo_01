@@ -5,4 +5,4 @@
   ..\USER\RTE_Components.h ..\LIB\Include\gd32f10x_dma.h \
   ..\LIB\Include\gd32f10x_gpio.h ..\LIB\Include\gd32f10x_misc.h \
   ..\LIB\Include\gd32f10x_rcu.h ..\LIB\Include\gd32f10x_usart.h \
-  ..\HW\Include\usart.h ..\HW\Include\delay.h
+  ..\HW\Include\usart.h ..\HW\Include\delay.h ..\HW\Include\iic.h

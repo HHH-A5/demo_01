@@ -1,6 +1,8 @@
 #include "gd32f10x.h"
 #include "usart.h"
 #include "delay.h"
+#include "iic.h"
+
 uint16_t i;
 
 

@@ -5,6 +5,7 @@
 ".\objects\gd32f10x_it.o"
 ".\objects\usart.o"
 ".\objects\delay.o"
+".\objects\iic.o"
 ".\objects\gd32f10x_gpio.o"
 ".\objects\gd32f10x_misc.o"
 ".\objects\gd32f10x_rcu.o"

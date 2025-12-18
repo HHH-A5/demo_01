@@ -424,6 +424,11 @@
               <FileType>1</FileType>
               <FilePath>..\HW\Source\delay.c</FilePath>
             </File>
+            <File>
+              <FileName>iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HW\Source\iic.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
