@@ -5,4 +5,4 @@
   G:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include\gd32f10x_libopt.h \
   ..\USER\RTE_Components.h ..\LIB\Include\gd32f10x_dma.h \
   ..\LIB\Include\gd32f10x_gpio.h ..\LIB\Include\gd32f10x_rcu.h \
-  ..\LIB\Include\gd32f10x_usart.h
+  ..\LIB\Include\gd32f10x_spi.h ..\LIB\Include\gd32f10x_usart.h
