@@ -444,6 +444,11 @@
               <FileType>1</FileType>
               <FilePath>..\HW\Source\w25q64.c</FilePath>
             </File>
+            <File>
+              <FileName>fmc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HW\Source\fmc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -478,6 +483,11 @@
               <FileName>gd32f10x_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\LIB\Source\gd32f10x_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>gd32f10x_fmc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIB\Source\gd32f10x_fmc.c</FilePath>
             </File>
           </Files>
         </Group>

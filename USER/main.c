@@ -5,7 +5,7 @@
 #include "m24c02.h"
 #include "spi.h"
 #include "w25q64.h"
-
+#include "fmc.h"
 
 uint16_t i;
 uint16_t j;
@@ -13,38 +13,63 @@ uint8_t rbuff[256];
 uint8_t wdata[256];
 uint8_t rdata[256];
 
+uint32_t wbuff[1024];
+
+
 int main(void)
 {
 	Usart0_Init(921600);
-	u0_printf("%d %c %x\r\n",0x30,0x30,0x30);
+//	u0_printf("%d %c %x\r\n",0x30,0x30,0x30);
 	Delay_Init();
 	IIC_Init();
 	SPI0_Init();
 	W25Q64_Init();
 	
-	// W25Q64测试代码
-	W25Q64_Erase64K(0);
-	for(i = 0; i < 256; i++)
+	//  flash测试代码
+	for(i = 0; i < 1024; i++)
 	{
-		for(j = 0; j < 256; j++)
-		{
-			wdata[j] = i;
-//	  W25Q64_PageWrite(wdata,i);     不应该放在这里!!!!!,会导致写入时间延长!!!!!
-		}
-		W25Q64_PageWrite(wdata,i);
-		u0_printf("addr:%d  data:%d\r\n",i * 256 + j,wdata[j]);
+		wbuff[i] = 0x11118888;
 	}
 	
-	Delay_Ms(100);
+//	GD32_EraseFlash(60,4);   // 擦除后面的4个扇区
 	
-	for(i = 0; i < 256; i++)
+	GD32_WriteFlash(0x08000000 + 60 * 1024, wbuff, 1024 * 4);
+	
+	for(i = 0; i < 1024; i++)
 	{
-		W25Q64_Read(rdata, i *256, 256);
-		for(j = 0; j < 256; j++)
-		{
-			u0_printf("addr:%d  data:%d\r\n",i * 256 + j,rdata[j]);
-		}
+		u0_printf("%x\r\n",* (uint32_t *)(0x08000000 + 60 * 1024 + i * 4));
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+//	// W25Q64测试代码
+//	W25Q64_Erase64K(0);
+//	for(i = 0; i < 256; i++)
+//	{
+//		for(j = 0; j < 256; j++)
+//		{
+//			wdata[j] = i;
+////	  W25Q64_PageWrite(wdata,i);     不应该放在这里!!!!!,会导致写入时间延长!!!!!
+//		}
+//		W25Q64_PageWrite(wdata,i);
+//		u0_printf("addr:%d  data:%d\r\n",i * 256 + j,wdata[j]);
+//	}
+//	
+//	Delay_Ms(100);
+//	
+//	for(i = 0; i < 256; i++)
+//	{
+//		W25Q64_Read(rdata, i *256, 256);
+//		for(j = 0; j < 256; j++)
+//		{
+//			u0_printf("addr:%d  data:%d\r\n",i * 256 + j,rdata[j]);
+//		}
+//	}
 	
 	
 		// M24C02测试代码	

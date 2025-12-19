@@ -3,8 +3,9 @@
   ..\CMSIS\Include\core_cmFunc.h ..\CMSIS\Include\system_gd32f10x.h \
   G:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include\gd32f10x_libopt.h \
   ..\USER\RTE_Components.h ..\LIB\Include\gd32f10x_dma.h \
-  ..\LIB\Include\gd32f10x_gpio.h ..\LIB\Include\gd32f10x_misc.h \
-  ..\LIB\Include\gd32f10x_rcu.h ..\LIB\Include\gd32f10x_spi.h \
-  ..\LIB\Include\gd32f10x_usart.h ..\HW\Include\usart.h \
-  ..\HW\Include\delay.h ..\HW\Include\iic.h ..\HW\Include\m24c02.h \
-  ..\HW\Include\spi.h ..\HW\Include\w25q64.h
+  ..\LIB\Include\gd32f10x_fmc.h ..\LIB\Include\gd32f10x_gpio.h \
+  ..\LIB\Include\gd32f10x_misc.h ..\LIB\Include\gd32f10x_rcu.h \
+  ..\LIB\Include\gd32f10x_spi.h ..\LIB\Include\gd32f10x_usart.h \
+  ..\HW\Include\usart.h ..\HW\Include\delay.h ..\HW\Include\iic.h \
+  ..\HW\Include\m24c02.h ..\HW\Include\spi.h ..\HW\Include\w25q64.h \
+  ..\HW\Include\fmc.h
