@@ -85,7 +85,7 @@ void u0_printf(char *format,...)
 		while(usart_flag_get(USART0,USART_FLAG_TBE) != 1);
 		usart_data_transmit(USART0,U0_TxBuff[i]);
 	}
-	while(usart_flag_get(USART0,USART_FLAG_TBE) != 1);
+	while(usart_flag_get(USART0,USART_FLAG_TC) != 1);
 }
 
 

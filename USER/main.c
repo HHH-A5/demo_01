@@ -14,22 +14,27 @@ uint16_t i;
 uint8_t ret;
 
 OTA_InfoCB OTA_Info;
+UpDataA_CB UpDataA;
 int main(void)
 {
 	Usart0_Init(921600);
 	Delay_Init();
 	IIC_Init();
-	Delay_Ms(5);
-	M24C02_WriteByte(0x00,0xAA);
-	Delay_Ms(5);
-	M24C02_WriteByte(0x01,0xBB);
-	Delay_Ms(5);
-	M24C02_WriteByte(0x02,0x11);
-	Delay_Ms(5);
-	M24C02_WriteByte(0x03,0x22);
-	Delay_Ms(6);
+//	Delay_Ms(5);
+//	M24C02_WriteByte(0x00,0xAA);
+//	Delay_Ms(5);
+//	M24C02_WriteByte(0x01,0xBB);
+//	Delay_Ms(5);
+//	M24C02_WriteByte(0x02,0x11);
+//	Delay_Ms(5);
+//	M24C02_WriteByte(0x03,0x22);
+//	Delay_Ms(6);
 	M24C02_ReadOTAInfo();
-	BootLoader_Brance();
+	ret += 1;
+	if(ret <  2)
+	{
+	    BootLoader_Brance();
+	}
 	M24C02_ReadData(0,rbuff,6);
 	
 	for(i = 0; i < 6; i++)
@@ -47,4 +52,5 @@ int main(void)
 	{
 
 	}
+
 }

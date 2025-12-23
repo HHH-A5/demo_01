@@ -1,8 +1,9 @@
 Dependencies for Project 'demo', Target 'demo': (DO NOT MODIFY !)
-CompilerVersion: 6220000::V6.22::ARMCLANG
-F (.\main.c)(0x694A074B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/main.o -MMD)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (.\main.c)(0x694AB99B)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -16,18 +17,22 @@ I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
 I (..\HW\Include\usart.h)(0x693FF68A)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdarg.h)(0x68B85DC3)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdio.h)(0x60252374)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\string.h)(0x6025237E)
 I (..\HW\Include\delay.h)(0x6942BBF7)
 I (..\HW\Include\iic.h)(0x6943F361)
 I (..\HW\Include\m24c02.h)(0x6947B6ED)
 I (..\HW\Include\spi.h)(0x6943FC3C)
 I (..\HW\Include\w25q64.h)(0x69441B51)
 I (..\HW\Include\fmc.h)(0x69450DF2)
-I (main.h)(0x694A0498)
-I (..\HW\Include\boot.h)(0x6947B7A0)
-F (..\CMSIS\Source\startup_gd32f10x_md.s)(0x689441E2)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 541" -Wa,armasm,--pd,"GD32F10X_MD SETA 1" -Wa,armasm,--pd,"USE_STDPERIPH_DRIVER SETA 1"-o ./objects/startup_gd32f10x_md.o)
-F (..\CMSIS\Source\system_gd32f10x.c)(0x689441E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/system_gd32f10x.o -MMD)
+I (main.h)(0x694AAD34)
+I (..\HW\Include\boot.h)(0x694AB99B)
+F (..\CMSIS\Source\startup_gd32f10x_md.s)(0x694AB988)(--cpu Cortex-M3 -g --apcs=interwork -IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include--pd "__UVISION_VERSION SETA 541" --pd "GD32F10X_MD SETA 1" --pd "USE_STDPERIPH_DRIVER SETA 1"--list .\listings\startup_gd32f10x_md.lst --xref -o .\objects\startup_gd32f10x_md.o --depend .\objects\startup_gd32f10x_md.d)
+F (..\CMSIS\Source\system_gd32f10x.c)(0x689441E2)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\system_gd32f10x.o --omf_browse .\objects\system_gd32f10x.crf --depend .\objects\system_gd32f10x.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -40,10 +45,11 @@ I (..\LIB\Include\gd32f10x_misc.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
-F (..\HW\Source\gd32f10x_it.c)(0x693FF394)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/gd32f10x_it.o -MMD)
+F (..\HW\Source\gd32f10x_it.c)(0x693FF394)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\gd32f10x_it.o --omf_browse .\objects\gd32f10x_it.crf --depend .\objects\gd32f10x_it.d)
 I (..\HW\Include\gd32f10x_it.h)(0x689441E3)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -57,9 +63,13 @@ I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
 I (..\HW\Include\usart.h)(0x693FF68A)
-F (..\HW\Source\usart.c)(0x693FF68A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/usart.o -MMD)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdarg.h)(0x68B85DC3)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdio.h)(0x60252374)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\string.h)(0x6025237E)
+F (..\HW\Source\usart.c)(0x694A5A1F)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\usart.o --omf_browse .\objects\usart.crf --depend .\objects\usart.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -73,9 +83,13 @@ I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
 I (..\HW\Include\usart.h)(0x693FF68A)
-F (..\HW\Source\delay.c)(0x6949F7C4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/delay.o -MMD)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdarg.h)(0x68B85DC3)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdio.h)(0x60252374)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\string.h)(0x6025237E)
+F (..\HW\Source\delay.c)(0x6949F7C4)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -89,9 +103,10 @@ I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
 I (..\HW\Include\delay.h)(0x6942BBF7)
-F (..\HW\Source\iic.c)(0x6943C1B3)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/iic.o -MMD)
+F (..\HW\Source\iic.c)(0x6943C1B3)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\iic.o --omf_browse .\objects\iic.crf --depend .\objects\iic.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -106,9 +121,10 @@ I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
 I (..\HW\Include\iic.h)(0x6943F361)
 I (..\HW\Include\delay.h)(0x6942BBF7)
-F (..\HW\Source\m24c02.c)(0x6949F3E4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/m24c02.o -MMD)
+F (..\HW\Source\m24c02.c)(0x6949F3E4)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\m24c02.o --omf_browse .\objects\m24c02.crf --depend .\objects\m24c02.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -123,11 +139,13 @@ I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
 I (..\HW\Include\iic.h)(0x6943F361)
 I (..\HW\Include\m24c02.h)(0x6947B6ED)
-I (..\USER\main.h)(0x694A0498)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\string.h)(0x6025237E)
+I (..\USER\main.h)(0x694AAD34)
 I (..\HW\Include\delay.h)(0x6942BBF7)
-F (..\HW\Source\spi.c)(0x6943FA63)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/spi.o -MMD)
+F (..\HW\Source\spi.c)(0x694AB99B)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\spi.o --omf_browse .\objects\spi.crf --depend .\objects\spi.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -141,9 +159,10 @@ I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
 I (..\HW\Include\spi.h)(0x6943FC3C)
-F (..\HW\Source\w25q64.c)(0x6944B273)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/w25q64.o -MMD)
+F (..\HW\Source\w25q64.c)(0x6944B273)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\w25q64.o --omf_browse .\objects\w25q64.crf --depend .\objects\w25q64.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -158,9 +177,10 @@ I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
 I (..\HW\Include\w25q64.h)(0x69441B51)
 I (..\HW\Include\spi.h)(0x6943FC3C)
-F (..\HW\Source\fmc.c)(0x69450DF2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/fmc.o -MMD)
+F (..\HW\Source\fmc.c)(0x69450DF2)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\fmc.o --omf_browse .\objects\fmc.crf --depend .\objects\fmc.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -174,9 +194,10 @@ I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
 I (..\HW\Include\fmc.h)(0x69450DF2)
-F (..\HW\Source\boot.c)(0x6947B8AD)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/boot.o -MMD)
+F (..\HW\Source\boot.c)(0x694AB96F)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\boot.o --omf_browse .\objects\boot.crf --depend .\objects\boot.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -189,19 +210,21 @@ I (..\LIB\Include\gd32f10x_misc.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
+I (..\HW\Include\boot.h)(0x694AB99B)
+I (..\USER\main.h)(0x694AAD34)
 I (..\HW\Include\usart.h)(0x693FF68A)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdarg.h)(0x68B85DC3)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdio.h)(0x60252374)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\string.h)(0x6025237E)
 I (..\HW\Include\delay.h)(0x6942BBF7)
+I (..\HW\Include\fmc.h)(0x69450DF2)
 I (..\HW\Include\iic.h)(0x6943F361)
 I (..\HW\Include\m24c02.h)(0x6947B6ED)
-I (..\HW\Include\spi.h)(0x6943FC3C)
-I (..\HW\Include\w25q64.h)(0x69441B51)
-I (..\HW\Include\fmc.h)(0x69450DF2)
-I (..\USER\main.h)(0x694A0498)
-I (..\HW\Include\boot.h)(0x6947B7A0)
-F (..\LIB\Source\gd32f10x_gpio.c)(0x689441E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/gd32f10x_gpio.o -MMD)
+F (..\LIB\Source\gd32f10x_gpio.c)(0x689441E2)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\gd32f10x_gpio.o --omf_browse .\objects\gd32f10x_gpio.crf --depend .\objects\gd32f10x_gpio.d)
 I (..\LIB\Include\gd32f10x_gpio.h)(0x689441E2)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -213,10 +236,11 @@ I (..\LIB\Include\gd32f10x_misc.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
-F (..\LIB\Source\gd32f10x_misc.c)(0x689441E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/gd32f10x_misc.o -MMD)
+F (..\LIB\Source\gd32f10x_misc.c)(0x689441E2)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\gd32f10x_misc.o --omf_browse .\objects\gd32f10x_misc.crf --depend .\objects\gd32f10x_misc.d)
 I (..\LIB\Include\gd32f10x_misc.h)(0x689441E2)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -228,10 +252,11 @@ I (..\LIB\Include\gd32f10x_gpio.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
-F (..\LIB\Source\gd32f10x_rcu.c)(0x689441E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/gd32f10x_rcu.o -MMD)
+F (..\LIB\Source\gd32f10x_rcu.c)(0x689441E2)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\gd32f10x_rcu.o --omf_browse .\objects\gd32f10x_rcu.crf --depend .\objects\gd32f10x_rcu.d)
 I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -243,10 +268,11 @@ I (..\LIB\Include\gd32f10x_gpio.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_misc.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
-F (..\LIB\Source\gd32f10x_usart.c)(0x689441E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/gd32f10x_usart.o -MMD)
+F (..\LIB\Source\gd32f10x_usart.c)(0x689441E2)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\gd32f10x_usart.o --omf_browse .\objects\gd32f10x_usart.crf --depend .\objects\gd32f10x_usart.d)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -258,10 +284,11 @@ I (..\LIB\Include\gd32f10x_gpio.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_misc.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
-F (..\LIB\Source\gd32f10x_dma.c)(0x689441E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/gd32f10x_dma.o -MMD)
+F (..\LIB\Source\gd32f10x_dma.c)(0x689441E2)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\gd32f10x_dma.o --omf_browse .\objects\gd32f10x_dma.crf --depend .\objects\gd32f10x_dma.d)
 I (..\LIB\Include\gd32f10x_dma.h)(0x689441E2)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -273,10 +300,11 @@ I (..\LIB\Include\gd32f10x_misc.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
-F (..\LIB\Source\gd32f10x_spi.c)(0x689441E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/gd32f10x_spi.o -MMD)
+F (..\LIB\Source\gd32f10x_spi.c)(0x689441E2)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\gd32f10x_spi.o --omf_browse .\objects\gd32f10x_spi.crf --depend .\objects\gd32f10x_spi.d)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)
@@ -288,10 +316,11 @@ I (..\LIB\Include\gd32f10x_gpio.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_misc.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
-F (..\LIB\Source\gd32f10x_fmc.c)(0x689441E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../CMSIS/Include -I ../HW/Include -I ../LIB/Include -I ../USER-IG:/Applications/MDK_541/back/GigaDevice/GD32F10x_DFP/2.3.0/Device/Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/gd32f10x_fmc.o -MMD)
+F (..\LIB\Source\gd32f10x_fmc.c)(0x689441E2)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\gd32f10x_fmc.o --omf_browse .\objects\gd32f10x_fmc.crf --depend .\objects\gd32f10x_fmc.d)
 I (..\LIB\Include\gd32f10x_fmc.h)(0x689441E2)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
+I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\CMSIS\Include\core_cmInstr.h)(0x689441E2)
 I (..\CMSIS\Include\core_cmFunc.h)(0x689441E2)
 I (..\CMSIS\Include\system_gd32f10x.h)(0x689441E2)

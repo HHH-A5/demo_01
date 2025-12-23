@@ -150,7 +150,16 @@ Reset_Handler       PROC
                     LDR     R0, =__main
                     BX      R0
                     ENDP
-
+						
+;MSR_MSP2			PROC	
+;					EXPORT MSR_MSP2
+;					MSR MSP, r0
+;					BX r14
+;					ENDP
+						
+						
+						
+						
 ;/* dummy Exception Handlers */
 NMI_Handler         PROC
                     EXPORT  NMI_Handler                         [WEAK]
