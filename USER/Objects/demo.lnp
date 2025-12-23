@@ -10,6 +10,7 @@
 ".\objects\spi.o"
 ".\objects\w25q64.o"
 ".\objects\fmc.o"
+".\objects\boot.o"
 ".\objects\gd32f10x_gpio.o"
 ".\objects\gd32f10x_misc.o"
 ".\objects\gd32f10x_rcu.o"

@@ -449,6 +449,11 @@
               <FileType>1</FileType>
               <FilePath>..\HW\Source\fmc.c</FilePath>
             </File>
+            <File>
+              <FileName>boot.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HW\Source\boot.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

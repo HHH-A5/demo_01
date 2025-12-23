@@ -8,4 +8,4 @@
   ..\LIB\Include\gd32f10x_spi.h ..\LIB\Include\gd32f10x_usart.h \
   ..\HW\Include\usart.h ..\HW\Include\delay.h ..\HW\Include\iic.h \
   ..\HW\Include\m24c02.h ..\HW\Include\spi.h ..\HW\Include\w25q64.h \
-  ..\HW\Include\fmc.h
+  ..\HW\Include\fmc.h main.h ..\HW\Include\boot.h
