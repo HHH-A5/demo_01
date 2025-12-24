@@ -1,6 +1,6 @@
 Dependencies for Project 'demo', Target 'demo': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x694BDBA0)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x694BDC04)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
 I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -27,7 +27,7 @@ I (..\HW\Include\spi.h)(0x6943FC3C)
 I (..\HW\Include\w25q64.h)(0x69441B51)
 I (..\HW\Include\fmc.h)(0x69450DF2)
 I (main.h)(0x694B7428)
-I (..\HW\Include\boot.h)(0x694AB99B)
+I (..\HW\Include\boot.h)(0x694BE885)
 F (..\CMSIS\Source\startup_gd32f10x_md.s)(0x694AB988)(--cpu Cortex-M3 -g --apcs=interwork -IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include--pd "__UVISION_VERSION SETA 541" --pd "GD32F10X_MD SETA 1" --pd "USE_STDPERIPH_DRIVER SETA 1"--list .\listings\startup_gd32f10x_md.lst --xref -o .\objects\startup_gd32f10x_md.o --depend .\objects\startup_gd32f10x_md.d)
 F (..\CMSIS\Source\system_gd32f10x.c)(0x689441E2)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\system_gd32f10x.o --omf_browse .\objects\system_gd32f10x.crf --depend .\objects\system_gd32f10x.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
@@ -194,7 +194,7 @@ I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
 I (..\HW\Include\fmc.h)(0x69450DF2)
-F (..\HW\Source\boot.c)(0x694B77DA)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\boot.o --omf_browse .\objects\boot.crf --depend .\objects\boot.d)
+F (..\HW\Source\boot.c)(0x694BE946)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Include -I ..\HW\Include -I ..\LIB\Include -I ..\USER-IG:\Applications\MDK_541\back\GigaDevice\GD32F10x_DFP\2.3.0\Device\Include-D__UVISION_VERSION="541" -DGD32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\boot.o --omf_browse .\objects\boot.crf --depend .\objects\boot.d)
 I (..\CMSIS\Include\gd32f10x.h)(0x689441E2)
 I (..\CMSIS\Include\core_cm3.h)(0x689441E2)
 I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -210,7 +210,7 @@ I (..\LIB\Include\gd32f10x_misc.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_rcu.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_spi.h)(0x689441E2)
 I (..\LIB\Include\gd32f10x_usart.h)(0x689441E2)
-I (..\HW\Include\boot.h)(0x694AB99B)
+I (..\HW\Include\boot.h)(0x694BE885)
 I (..\USER\main.h)(0x694B7428)
 I (..\HW\Include\usart.h)(0x693FF68A)
 I (G:\Applications\MDK_541\code\ARM\ARMCC\include\stdarg.h)(0x68B85DC3)

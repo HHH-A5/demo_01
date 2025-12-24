@@ -68,17 +68,21 @@
 
 load_a load_A;
 
-void BootLoader_Clear(void){
+void BootLoader_Clear(void)
+{
 	usart_deinit(USART0);
 	gpio_deinit(GPIOA);
 	gpio_deinit(GPIOB);
 }
-__asm void MSR_SP(uint32_t addr){
+
+__asm void MSR_SP(uint32_t addr)
+{
 	MSR MSP, r0
 	BX r14
 }
 
-void LOAD_A(uint32_t addr){
+void LOAD_A(uint32_t addr)
+{
 	if((*(uint32_t *)addr>=0x20000000)&&(*(uint32_t *)addr<=0x20004FFF)){
 		MSR_SP(*(uint32_t *)addr);
 		load_A = (load_a)*(uint32_t *)(addr+4);
@@ -87,19 +91,52 @@ void LOAD_A(uint32_t addr){
 	}
 }
 
-
-void BootLoader_Brance(void){
-	if(OTA_Info.OTA_flag == OTA_SET_FLAG)
+void BootLoader_Brance(void)
+{
+	if(BootLoader_Enter(20) == 0)
 	{
-		u0_printf("OTA update\r\n");
-		BootStaFlag |= UODATE_A_FLAG;
-		UpDataA.W25Q64_BlockNB = 0;
-	}else
+		if(OTA_Info.OTA_flag == OTA_SET_FLAG)
+		{
+			u0_printf("OTA update\r\n");
+			BootStaFlag |= UODATE_A_FLAG;
+			UpDataA.W25Q64_BlockNB = 0;
+		}else
+		{
+			u0_printf("go to A block\r\n");
+			LOAD_A(GD32_A_SADDR);
+		}
+	}
+	else 
 	{
-		u0_printf("go to A block\r\n");
-		LOAD_A(GD32_A_SADDR);
+		u0_printf("!!you are go inbootloder command window\r\n");
+		BootLoader_Info();
 	}
 }
 
+uint8_t BootLoader_Enter(uint8_t time_out)
+{
+	u0_printf("%dms, please enter :w, for bootloder command window\r\n", time_out * 100);
+	while(time_out--)
+	{
+		Delay_Ms(100);
+		if(U0_RxBuff[0] == 'w')
+		{
+			return 1;  // 进入命令行
+		}
+	}
+	return 0;  // 不进入命令行
+}
+
+void BootLoader_Info(void)
+{
+	u0_printf("\r\n");
+	u0_printf("[1]erase A block\r\n");
+	u0_printf("[2]dowlo A block\r\n");
+	u0_printf("[3]set A block version\r\n");
+	u0_printf("[4]get A block version\r\n");
+	u0_printf("[5]dowlo program to outside flash\r\n");
+	u0_printf("[6]use program in outside flash\r\n");
+	u0_printf("[6]restart !\r\n");
+}
 
 
