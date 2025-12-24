@@ -89,9 +89,13 @@ void LOAD_A(uint32_t addr){
 
 
 void BootLoader_Brance(void){
-	if(OTA_Info.OTA_flag == OTA_SET_FLAG){
+	if(OTA_Info.OTA_flag == OTA_SET_FLAG)
+	{
 		u0_printf("OTA update\r\n");
-	}else{
+		BootStaFlag |= UODATE_A_FLAG;
+		UpDataA.W25Q64_BlockNB = 0;
+	}else
+	{
 		u0_printf("go to A block\r\n");
 		LOAD_A(GD32_A_SADDR);
 	}

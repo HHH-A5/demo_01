@@ -12,6 +12,7 @@
 #define GD32_A_SADDR     (GD32_FLASH_SADDR + GD32_A_SPAGE * GD32_PAGE_SIZE)  // A区的flash起始地址
 
 #define OTA_SET_FLAG  0xAABB122
+#define UODATE_A_FLAG  0x00000001
 
 typedef struct
 {
@@ -30,5 +31,6 @@ typedef struct
 
 
 extern OTA_InfoCB OTA_Info;
-extern UpDataA_CB UpDataA;;
+extern UpDataA_CB UpDataA;
+extern uint32_t BootStaFlag; 
 #endif
