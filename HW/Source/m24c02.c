@@ -60,4 +60,16 @@ void M24C02_ReadOTAInfo(void)
 	M24C02_ReadData(0, (uint8_t *)&OTA_Info, OTA_INFOCB_SIZE);   // 规定地址0存入的OTA是信息
 }
 
+void M24C02_WriteOTAInfo(void)
+{
+	uint8_t i;
+	uint8_t *wptr;
+	
+	wptr = (uint8_t *)&OTA_Info;
+	for(i = 0; i < OTA_INFOCB_SIZE/16; i++)
+	{
+		M24C02_WritePage(i * 16, wptr + i * 16);
+		Delay_Ms(6);
+	}
+}
 

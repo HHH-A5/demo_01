@@ -20,34 +20,23 @@ int main(void)
 	Usart0_Init(921600);
 	Delay_Init();
 	IIC_Init();
-//	Delay_Ms(5);
-//	M24C02_WriteByte(0x00,0xAA);
-//	Delay_Ms(5);
-//	M24C02_WriteByte(0x01,0xBB);
-//	Delay_Ms(5);
-//	M24C02_WriteByte(0x02,0x11);
-//	Delay_Ms(5);
-//	M24C02_WriteByte(0x03,0x22);
-//	Delay_Ms(6);
-	M24C02_ReadOTAInfo();
-	ret += 1;
-	if(ret <  2)
-	{
-	    BootLoader_Brance();
-	}
-	M24C02_ReadData(0,rbuff,6);
 	
-	for(i = 0; i < 6; i++)
+	OTA_Info.OTA_flag = 0xAABB122;
+	
+	for(i = 0; i < 11; i++)
 	{
-		u0_printf("addr:%d  data:%x\r\n",i,rbuff[i]);
-		Delay_Ms(1);
+		OTA_Info.Firelen[i] = i;
 	}
+	M24C02_WriteOTAInfo();
+	Delay_Ms(5);
+	M24C02_ReadOTAInfo();
+	u0_printf("%x\r\n", OTA_Info.OTA_flag);
+	for(i = 0; i < 11; i++)
+	{
+		u0_printf("%x\r\n", OTA_Info.Firelen[i]);
+	}
+	BootLoader_Brance();
 
-//	uint8_t tmp;
-//M24C02_WriteByte(0x1C, 0x02);
-//Delay_Ms(6);                    // ±ØÐë ¡Ý5 ms
-//M24C02_ReadData(0x1C, &tmp, 1);
-//u0_printf("read back: 0x%02X\r\n", tmp);
 	while(1)
 	{
 

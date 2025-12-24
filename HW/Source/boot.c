@@ -90,7 +90,7 @@ void LOAD_A(uint32_t addr){
 
 void BootLoader_Brance(void){
 	if(OTA_Info.OTA_flag == OTA_SET_FLAG){
-		u0_printf("OTA¸üÐÂ\r\n");
+		u0_printf("OTA update\r\n");
 	}else{
 		u0_printf("go to A block\r\n");
 		LOAD_A(GD32_A_SADDR);
