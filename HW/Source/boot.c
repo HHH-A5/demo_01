@@ -83,11 +83,16 @@ __asm void MSR_SP(uint32_t addr)
 
 void LOAD_A(uint32_t addr)
 {
-	if((*(uint32_t *)addr>=0x20000000)&&(*(uint32_t *)addr<=0x20004FFF)){
+	if((*(uint32_t *)addr>=0x20000000)&&(*(uint32_t *)addr<=0x20004FFF))
+	{
 		MSR_SP(*(uint32_t *)addr);
 		load_A = (load_a)*(uint32_t *)(addr+4);
 		BootLoader_Clear();
 		load_A();
+	}
+	else
+	{
+		u0_printf("go to A block error !\r\n");
 	}
 }
 
@@ -106,11 +111,10 @@ void BootLoader_Brance(void)
 			LOAD_A(GD32_A_SADDR);
 		}
 	}
-	else 
-	{
-		u0_printf("!!you are go inbootloder command window\r\n");
-		BootLoader_Info();
-	}
+	// 如果跳转失败，也进入命令行
+	u0_printf("!!you are go inbootloder command window\r\n");
+	BootLoader_Info();
+
 }
 
 uint8_t BootLoader_Enter(uint8_t time_out)
@@ -136,7 +140,21 @@ void BootLoader_Info(void)
 	u0_printf("[4]get A block version\r\n");
 	u0_printf("[5]dowlo program to outside flash\r\n");
 	u0_printf("[6]use program in outside flash\r\n");
-	u0_printf("[6]restart !\r\n");
+	u0_printf("[7]restart !\r\n");
 }
 
+void BootLoader_Even(uint8_t *data, uint16_t datalen)
+{
+	if((datalen == 1)&&(data[0] == '1'))
+	{
+		u0_printf("you choose [1]erase A block\r\n");
+		GD32_EraseFlash(GD32_A_SPAGE,GD32_A_PAGE_NUM);
+	}
+	if((datalen == 1)&&(data[0] == '7'))
+	{
+		u0_printf("you choose [7]restart !\r\n");
+		Delay_Ms(200);
+		NVIC_SystemReset();
+	}
+}
 

@@ -23,7 +23,7 @@ int main(void)
 	Delay_Init();
 	IIC_Init();
 	
-	OTA_Info.OTA_flag = 0xAABB122;
+	OTA_Info.OTA_flag = 0xAABB1111;
 	OTA_Info.Firelen[0] = 85;      // 第一个应用程序大小
 
 	M24C02_WriteOTAInfo();
@@ -68,6 +68,18 @@ int main(void)
 				u0_printf(" code size error\r\n");
 				BootStaFlag &= ~UODATE_A_FLAG;
 			}
+		}
+		
+		// 两者不等代表接收到数据
+		if(U0CB.URxDataOUT != U0CB.URxDataIN)
+		{
+			BootLoader_Even(U0CB.URxDataOUT->start, U0CB.URxDataOUT->end - U0CB.URxDataOUT->start +1);
+		
+			U0CB.URxDataOUT++;
+		  if(U0CB.URxDataOUT == U0CB.URxDataEND)
+		  {
+			  U0CB.URxDataOUT = &U0CB.URxDataPtr[0];
+	  	}
 		}
 	}
 }
