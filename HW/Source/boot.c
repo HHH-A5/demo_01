@@ -157,12 +157,49 @@ void BootLoader_Even(uint8_t *data, uint16_t datalen)
 			u0_printf("you choose dowlo A block with Xmodem Communication protocol , bin file !\r\n");
 			GD32_EraseFlash(GD32_A_SPAGE,GD32_A_PAGE_NUM);
 			BootStaFlag |= IAP_XMODEMC_FLAG;
+			BootStaFlag |= IAP_XMODEMD_FLAG;
 			UpDataA.XmodemTimer = 0;
+			UpDataA.XmodemNB = 0;
 		}
 		if((datalen == 1)&&(data[0] == '7'))
 		{
 			u0_printf("you choose [7]restart !\r\n");
 			Delay_Ms(200);
+			NVIC_SystemReset();
+		}
+	}
+	
+	if(BootStaFlag & IAP_XMODEMD_FLAG)
+	{
+		if((datalen == 133)&&(data[0] == 0x01))
+		{
+			BootStaFlag &= ~IAP_XMODEMC_FLAG;
+			UpDataA.XmodemCRC =  Xmodem_CRC(&data[3], 128);
+			if(UpDataA.XmodemCRC == data[131]*256 + data[132])
+			{
+				memcpy(&UpDataA.Updatabuff[(UpDataA.XmodemNB % (GD32_PAGE_SIZE/128))*128], &data[3], 128);
+				if(((UpDataA.XmodemNB + 1) % (GD32_PAGE_SIZE/128)) == 0)
+				{
+						GD32_WriteFlash(GD32_A_SADDR + ((UpDataA.XmodemNB + 1)/(GD32_PAGE_SIZE/128) - 1)* GD32_PAGE_SIZE, (uint32_t *)UpDataA.Updatabuff , GD32_PAGE_SIZE);	
+				}
+				// 我是后加的，和up主的有区别
+				UpDataA.XmodemNB++;
+				u0_printf("\x06");   // ACK		
+			}
+			else
+			{	
+				u0_printf("\x15");	 // NACK	 		
+			}
+		}	
+
+		if((datalen == 1)&&(data[0] == 0x04))
+		{	
+			u0_printf("\x06");   // ACK					
+			if(((UpDataA.XmodemNB) % (GD32_PAGE_SIZE/128)) != 0)
+			{
+					GD32_WriteFlash(GD32_A_SADDR + (UpDataA.XmodemNB /(GD32_PAGE_SIZE/128))* GD32_PAGE_SIZE, (uint32_t *)UpDataA.Updatabuff , ((UpDataA.XmodemNB) % (GD32_PAGE_SIZE/128)) * 128);	
+			}
+			Delay_Ms(100);
 			NVIC_SystemReset();
 		}
 	}

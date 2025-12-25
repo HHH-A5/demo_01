@@ -52,13 +52,13 @@ int main(void)
 				{
 					// UpDataA.W25Q64_BlockNB * 64 * 1024 代表偏移64k
 					W25Q64_Read(UpDataA.Updatabuff, UpDataA.W25Q64_BlockNB * 64 * 1024 +i*1024, GD32_PAGE_SIZE);
-					GD32_WriteFlash(0x08000000 + i*GD32_PAGE_SIZE, (uint32_t *)UpDataA.Updatabuff , GD32_PAGE_SIZE);
+					GD32_WriteFlash(GD32_A_SADDR + i*GD32_PAGE_SIZE, (uint32_t *)UpDataA.Updatabuff , GD32_PAGE_SIZE);
 				}
 				
 				if(OTA_Info.Firelen[UpDataA.W25Q64_BlockNB] % 1024 != 0)
 				{
 					W25Q64_Read(UpDataA.Updatabuff, UpDataA.W25Q64_BlockNB * 64 * 1024 +i*1024, OTA_Info.Firelen[UpDataA.W25Q64_BlockNB] % 1024);
-					GD32_WriteFlash(0x08000000 + i*GD32_PAGE_SIZE, (uint32_t *)UpDataA.Updatabuff , OTA_Info.Firelen[UpDataA.W25Q64_BlockNB] % 1024);					
+					GD32_WriteFlash(GD32_A_SADDR + i*GD32_PAGE_SIZE, (uint32_t *)UpDataA.Updatabuff , OTA_Info.Firelen[UpDataA.W25Q64_BlockNB] % 1024);					
 				}
 				
 				// 清除OTA标志位

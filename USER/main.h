@@ -13,8 +13,8 @@
 
 #define OTA_SET_FLAG  0xAABB122
 #define UODATE_A_FLAG  0x00000001
-#define IAP_XMODEMC_FLAG 0x00000002 
-
+#define IAP_XMODEMC_FLAG 0x00000002     // C的意思就是发送大写C
+#define IAP_XMODEMD_FLAG 0x00000004     // D的意思就是发送data数据
 typedef struct
 {
 	uint32_t OTA_flag;
@@ -28,6 +28,8 @@ typedef struct
 	uint8_t Updatabuff[GD32_PAGE_SIZE];
 	uint32_t W25Q64_BlockNB;  // 记录取的是哪一块
 	uint32_t XmodemTimer;
+	uint32_t XmodemNB;
+	uint32_t XmodemCRC;
 }UpDataA_CB;
 
 
