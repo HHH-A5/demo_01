@@ -13,6 +13,7 @@
 
 #define OTA_SET_FLAG  0xAABB122
 #define UODATE_A_FLAG  0x00000001
+#define IAP_XMODEMC_FLAG 0x00000002 
 
 typedef struct
 {
@@ -26,7 +27,7 @@ typedef struct
 {
 	uint8_t Updatabuff[GD32_PAGE_SIZE];
 	uint32_t W25Q64_BlockNB;  // 记录取的是哪一块
-	
+	uint32_t XmodemTimer;
 }UpDataA_CB;
 
 

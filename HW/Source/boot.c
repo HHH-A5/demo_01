@@ -145,16 +145,51 @@ void BootLoader_Info(void)
 
 void BootLoader_Even(uint8_t *data, uint16_t datalen)
 {
-	if((datalen == 1)&&(data[0] == '1'))
+	if(BootStaFlag == 0)
 	{
-		u0_printf("you choose [1]erase A block\r\n");
-		GD32_EraseFlash(GD32_A_SPAGE,GD32_A_PAGE_NUM);
-	}
-	if((datalen == 1)&&(data[0] == '7'))
-	{
-		u0_printf("you choose [7]restart !\r\n");
-		Delay_Ms(200);
-		NVIC_SystemReset();
+		if((datalen == 1)&&(data[0] == '1'))
+		{
+			u0_printf("you choose [1]erase A block\r\n");
+			GD32_EraseFlash(GD32_A_SPAGE,GD32_A_PAGE_NUM);
+		}
+		if((datalen == 1)&&(data[0] == '2'))
+		{
+			u0_printf("you choose dowlo A block with Xmodem Communication protocol , bin file !\r\n");
+			GD32_EraseFlash(GD32_A_SPAGE,GD32_A_PAGE_NUM);
+			BootStaFlag |= IAP_XMODEMC_FLAG;
+			UpDataA.XmodemTimer = 0;
+		}
+		if((datalen == 1)&&(data[0] == '7'))
+		{
+			u0_printf("you choose [7]restart !\r\n");
+			Delay_Ms(200);
+			NVIC_SystemReset();
+		}
 	}
 }
 
+uint16_t Xmodem_CRC(uint8_t *data, uint16_t datalen)
+{
+	uint8_t i;
+	// 这两个值是规定的
+	uint16_t CRCinit = 0x0000;
+	uint16_t CRCpoly = 0x1021;
+	
+	while(datalen--)
+	{
+		CRCinit = (*data << 8) ^ CRCinit;   // *data代表取值
+		for(i = 0; i < 8; i++)
+		{
+			if(CRCinit & 0x8000)   // 判断最高位是不是1
+			{
+				CRCinit = (CRCinit << 1) ^ CRCpoly;
+			}
+			else
+			{
+				CRCinit = (CRCinit << 1);
+			}
+		}
+		data++;
+	}
+	return CRCinit;
+}
