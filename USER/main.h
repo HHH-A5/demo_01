@@ -15,10 +15,13 @@
 #define UODATE_A_FLAG  0x00000001
 #define IAP_XMODEMC_FLAG 0x00000002     // C的意思就是发送大写C
 #define IAP_XMODEMD_FLAG 0x00000004     // D的意思就是发送data数据
+#define SET_VERSION_FLAG 0x00000008    
+
 typedef struct
 {
 	uint32_t OTA_flag;
 	uint32_t Firelen[11]; // 0成员固定对于OTA的大小
+	uint8_t OTA_Ver[32];
 }OTA_InfoCB;
 #define OTA_INFOCB_SIZE sizeof(OTA_InfoCB)
 	

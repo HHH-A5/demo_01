@@ -112,7 +112,7 @@ void BootLoader_Brance(void)
 		}
 	}
 	// 如果跳转失败，也进入命令行
-	u0_printf("!!you are go inbootloder command window\r\n");
+	u0_printf("!!you are go in bootloder command window\r\n");
 	BootLoader_Info();
 
 }
@@ -145,6 +145,7 @@ void BootLoader_Info(void)
 
 void BootLoader_Even(uint8_t *data, uint16_t datalen)
 {
+	int temp;
 	if(BootStaFlag == 0)
 	{
 		if((datalen == 1)&&(data[0] == '1'))
@@ -152,15 +153,31 @@ void BootLoader_Even(uint8_t *data, uint16_t datalen)
 			u0_printf("you choose [1]erase A block\r\n");
 			GD32_EraseFlash(GD32_A_SPAGE,GD32_A_PAGE_NUM);
 		}
+		
 		if((datalen == 1)&&(data[0] == '2'))
 		{
-			u0_printf("you choose dowlo A block with Xmodem Communication protocol , bin file !\r\n");
+			u0_printf("you choose [2]dowlo A block with Xmodem Communication protocol , bin file !\r\n");
 			GD32_EraseFlash(GD32_A_SPAGE,GD32_A_PAGE_NUM);
 			BootStaFlag |= IAP_XMODEMC_FLAG;
 			BootStaFlag |= IAP_XMODEMD_FLAG;
 			UpDataA.XmodemTimer = 0;
 			UpDataA.XmodemNB = 0;
 		}
+		
+		if((datalen == 1)&&(data[0] == '3'))
+		{
+			u0_printf("you choose [3]set A block version !\r\n");
+			BootStaFlag |= SET_VERSION_FLAG;
+		}
+		
+		if((datalen == 1)&&(data[0] == '4'))
+		{
+			u0_printf("you choose [4]get A block version !\r\n");
+			M24C02_ReadOTAInfo();
+			u0_printf("the newest: %s !\r\n",(char *)OTA_Info.OTA_Ver);   // 加入(char *)才可以正常输出
+			BootLoader_Info();
+		}
+		
 		if((datalen == 1)&&(data[0] == '7'))
 		{
 			u0_printf("you choose [7]restart !\r\n");
@@ -168,8 +185,7 @@ void BootLoader_Even(uint8_t *data, uint16_t datalen)
 			NVIC_SystemReset();
 		}
 	}
-	
-	if(BootStaFlag & IAP_XMODEMD_FLAG)
+	else if(BootStaFlag & IAP_XMODEMD_FLAG)
 	{
 		if((datalen == 133)&&(data[0] == 0x01))
 		{
@@ -201,6 +217,30 @@ void BootLoader_Even(uint8_t *data, uint16_t datalen)
 			}
 			Delay_Ms(100);
 			NVIC_SystemReset();
+		}
+	}
+  else if(BootStaFlag & SET_VERSION_FLAG)
+	{
+		u0_printf("datalen is %d\r\n", datalen); 
+		if(datalen == 26)
+		{	
+			if((sscanf((char *)data,"VER-%d.%d.%d-%d/%d/%d-%d:%d",&temp,&temp,&temp,&temp,&temp,&temp,&temp,&temp)) == 8)
+			{
+				memset(OTA_Info.OTA_Ver, 0 ,32);
+				memcpy(OTA_Info.OTA_Ver, data, 27);
+				M24C02_WriteOTAInfo();
+				u0_printf("new version is ok\r\n"); 
+				BootStaFlag &= ~SET_VERSION_FLAG;	
+				BootLoader_Info();				
+			}
+			else
+			{
+				u0_printf("the type of version is wrong ! ! !\r\n"); 
+			}
+		}
+		else
+		{
+			u0_printf("the len of version is wrong ! ! !\r\n");  
 		}
 	}
 }
