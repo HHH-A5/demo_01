@@ -16,7 +16,9 @@
 #define IAP_XMODEMC_FLAG 0x00000002     // C的意思就是发送大写C
 #define IAP_XMODEMD_FLAG 0x00000004     // D的意思就是发送data数据
 #define SET_VERSION_FLAG 0x00000008    
-
+#define CMD_5_FLAG 0x00000010
+#define CMD_5_XMODEM_FLAG 0x00000020 
+#define CMD_6_FLAG 0x00000040   
 typedef struct
 {
 	uint32_t OTA_flag;

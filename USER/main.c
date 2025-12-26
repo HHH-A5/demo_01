@@ -15,24 +15,15 @@ uint8_t ret;
 
 OTA_InfoCB OTA_Info;
 UpDataA_CB UpDataA;
-
 uint32_t BootStaFlag;   // 状态机变量
 
-uint8_t crc[5] = {1,2,3,4,5};
 int main(void)
 {
 	Usart0_Init(921600);
 	Delay_Init();
 	IIC_Init();
+	W25Q64_Init();
 	
-	OTA_Info.OTA_flag = 0xAABB1111;
-	OTA_Info.Firelen[0] = 85;      // 第一个应用程序大小
-
-	u0_printf("CRC result:%x\r\n",Xmodem_CRC(crc,5));
-	
-	//while(1);
-	
-	M24C02_WriteOTAInfo();
 	Delay_Ms(5);
 	M24C02_ReadOTAInfo();
 

@@ -65,6 +65,7 @@
 #include "fmc.h"
 #include "iic.h"
 #include "m24c02.h"
+#include "w25q64.h"
 
 load_a load_A;
 
@@ -145,8 +146,8 @@ void BootLoader_Info(void)
 
 void BootLoader_Even(uint8_t *data, uint16_t datalen)
 {
-	int temp;
-	if(BootStaFlag == 0)
+	int temp,i;
+	if(BootStaFlag == 0)    //====================================================================================================
 	{
 		if((datalen == 1)&&(data[0] == '1'))
 		{
@@ -178,6 +179,20 @@ void BootLoader_Even(uint8_t *data, uint16_t datalen)
 			BootLoader_Info();
 		}
 		
+		if((datalen == 1)&&(data[0] == '5'))
+		{
+			BootStaFlag |= CMD_5_FLAG;
+			u0_printf("you choose [5]dowlo program to outside flash !\r\n");
+			u0_printf("please enter the nume (1-9) of flash !\r\n");
+		}
+
+		if((datalen == 1)&&(data[0] == '6'))
+		{
+			BootStaFlag |= CMD_6_FLAG;
+			u0_printf("you choose [6]use program in outside flash !\r\n");
+			u0_printf("please enter the nume (1-9) of flash !\r\n");
+		}
+		
 		if((datalen == 1)&&(data[0] == '7'))
 		{
 			u0_printf("you choose [7]restart !\r\n");
@@ -185,7 +200,7 @@ void BootLoader_Even(uint8_t *data, uint16_t datalen)
 			NVIC_SystemReset();
 		}
 	}
-	else if(BootStaFlag & IAP_XMODEMD_FLAG)
+	else if(BootStaFlag & IAP_XMODEMD_FLAG)     //====================================================================================================
 	{
 		if((datalen == 133)&&(data[0] == 0x01))
 		{
@@ -196,7 +211,18 @@ void BootLoader_Even(uint8_t *data, uint16_t datalen)
 				memcpy(&UpDataA.Updatabuff[(UpDataA.XmodemNB % (GD32_PAGE_SIZE/128))*128], &data[3], 128);
 				if(((UpDataA.XmodemNB + 1) % (GD32_PAGE_SIZE/128)) == 0)
 				{
+					if(BootStaFlag & CMD_5_XMODEM_FLAG)
+					{
+						for(i = 0; i < 4; i++)
+						{
+							// 一页写 256字节，64k * 4
+							W25Q64_PageWrite(&UpDataA.Updatabuff[i * 256], UpDataA.W25Q64_BlockNB * 64 * 4 + ((UpDataA.XmodemNB + 1)/8 -1) * 4 + i);
+						}
+					}
+					else
+					{
 						GD32_WriteFlash(GD32_A_SADDR + ((UpDataA.XmodemNB + 1)/(GD32_PAGE_SIZE/128) - 1)* GD32_PAGE_SIZE, (uint32_t *)UpDataA.Updatabuff , GD32_PAGE_SIZE);	
+					}
 				}
 				// 我是后加的，和up主的有区别
 				UpDataA.XmodemNB++;
@@ -213,13 +239,35 @@ void BootLoader_Even(uint8_t *data, uint16_t datalen)
 			u0_printf("\x06");   // ACK					
 			if(((UpDataA.XmodemNB) % (GD32_PAGE_SIZE/128)) != 0)
 			{
+				if(BootStaFlag & CMD_5_XMODEM_FLAG)
+				{
+					for(i = 0; i < 4; i++)
+					{
+						W25Q64_PageWrite(&UpDataA.Updatabuff[i * 256], UpDataA.W25Q64_BlockNB * 64 * 4 + (UpDataA.XmodemNB/8) * 4 + i);
+					}
+				}
+				else
+				{				
 					GD32_WriteFlash(GD32_A_SADDR + (UpDataA.XmodemNB /(GD32_PAGE_SIZE/128))* GD32_PAGE_SIZE, (uint32_t *)UpDataA.Updatabuff , ((UpDataA.XmodemNB) % (GD32_PAGE_SIZE/128)) * 128);	
+				}
 			}
-			Delay_Ms(100);
-			NVIC_SystemReset();
+			if(BootStaFlag & CMD_5_XMODEM_FLAG)
+			{
+				BootStaFlag &= ~IAP_XMODEMD_FLAG;
+				BootStaFlag &= ~CMD_5_XMODEM_FLAG;  // 这里不用重启
+				OTA_Info.Firelen[UpDataA.W25Q64_BlockNB] = UpDataA.XmodemNB * 128;
+				M24C02_WriteOTAInfo();
+				Delay_Ms(100);
+				BootLoader_Info();
+			}
+			else
+			{
+				Delay_Ms(100);
+				NVIC_SystemReset();			
+			}
 		}
 	}
-  else if(BootStaFlag & SET_VERSION_FLAG)
+  else if(BootStaFlag & SET_VERSION_FLAG)      //====================================================================================================
 	{
 		u0_printf("datalen is %d\r\n", datalen); 
 		if(datalen == 26)
@@ -241,6 +289,56 @@ void BootLoader_Even(uint8_t *data, uint16_t datalen)
 		else
 		{
 			u0_printf("the len of version is wrong ! ! !\r\n");  
+		}
+	}
+	else if(BootStaFlag & CMD_5_FLAG)        //====================================================================================================
+	{
+		if(datalen == 1)
+		{
+			if((data[0] >= '1') && (data[0] <= '9'))
+			{
+				UpDataA.W25Q64_BlockNB = data[0] - 0x30;
+				BootStaFlag |= IAP_XMODEMC_FLAG;
+				BootStaFlag |= IAP_XMODEMD_FLAG;
+				BootStaFlag |= CMD_5_XMODEM_FLAG;
+				UpDataA.XmodemTimer = 0;
+				UpDataA.XmodemNB = 0;
+				OTA_Info.Firelen[UpDataA.W25Q64_BlockNB] = 0;
+				W25Q64_Erase64K(UpDataA.W25Q64_BlockNB );
+				BootStaFlag &=~ CMD_5_FLAG;			
+				u0_printf("you choose [5]use program in outside flash ,%d block\r\n",UpDataA.W25Q64_BlockNB);
+				u0_printf("with Xmodem Communication protocol , bin file !\r\n");
+			}
+			else
+			{
+				u0_printf("the number is wrong ! ! !\r\n");  
+			}			
+		}
+		else
+		{
+			u0_printf("the len of data is wrong ! ! !\r\n");  
+		}
+	}
+	else if(BootStaFlag & CMD_6_FLAG)        //====================================================================================================
+	{
+		if(datalen == 1)
+		{
+			if((data[0] >= '1') && (data[0] <= '9'))
+			{
+				UpDataA.W25Q64_BlockNB = data[0] - 0x30;
+				u0_printf("you choose [6]dowlo program to outside flash ,%d block\r\n",UpDataA.W25Q64_BlockNB);
+				u0_printf("	OTA_Info.Firelen[UpDataA.W25Q64_BlockNB] = %d block\r\n",	OTA_Info.Firelen[UpDataA.W25Q64_BlockNB] );
+				BootStaFlag |= UODATE_A_FLAG;
+				BootStaFlag &=~ CMD_6_FLAG;			
+			}
+			else
+			{
+				u0_printf("the number is wrong ! ! !\r\n");  
+			}			
+		}
+		else
+		{
+			u0_printf("the len of data is wrong ! ! !\r\n");  
 		}
 	}
 }
